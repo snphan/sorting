@@ -1,6 +1,26 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
+#include <iomanip>
 using namespace std;
+
+//------------------------------------------------------------//
+//TODO: Add a function for timer start - Steven
+//------------------------------------------------------------//
+chrono::time_point<chrono::high_resolution_clock> timerStart() {
+	auto start = chrono::high_resolution_clock::now();
+    return start;
+}
+
+//------------------------------------------------------------//
+//TODO: Add a function for timer finish - Steven
+//------------------------------------------------------------//
+void timerFinish(chrono::time_point<chrono::high_resolution_clock> startTime) {
+	auto finish = chrono::high_resolution_clock::now();
+	chrono::duration<double> elapsed = finish - startTime;
+    double elapsedTime = elapsed.count();
+	cout << "Elapsed time: " << setprecision(100) << elapsedTime << "s\n";
+}
 
 vector<double> convertStrToVector(string str){
 	// Convert a comma delimited string into a vector of doubles.
@@ -45,8 +65,8 @@ vector<double> bubbleSort(vector<double> originalVector) {
 		for (i = 0; i < vectorSize - 1; i++) {
 				if (originalVector[i] > originalVector[i+1]) {
 					swapNumbers(originalVector[i], originalVector[i+1]);
-          displayVector(originalVector);
-          cout << endl;
+          //displayVector(originalVector);
+          //cout << endl;
 				}
 				else {
 					j++;
@@ -106,8 +126,9 @@ sort).\nPlease choose some numbers separated by commas! (ex. 1,2,3,4,5)\n";
 		cout << "Hmm, it doesn't seem like you entered anything\n";
 		return 0;
 	}
-	//create a bubblesort function
-	vector<double> sortedVector = selectionSort(intNumberList);
+	auto startTime = timerStart();
+	vector<double> sortedVector = bubbleSort(intNumberList);
+  timerFinish(startTime);
 	cout << "Done! your sorted list of numbers is: ";
 	displayVector(sortedVector);
 	cout << endl;
