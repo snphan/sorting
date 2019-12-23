@@ -59,6 +59,34 @@ vector<double> bubbleSort(vector<double> originalVector) {
 
 //------------------------------------------------------------//
 //TODO: Add a function for selection sort
+vector<double> selectionSort(vector<double> originalVector) {
+	int vectorSize = originalVector.size();
+	int i,j,k,stopper;
+	// i is the counter for the item being compared, j is the counter for the item,
+	// that the first item is being compared to. k is the counter for the index of element
+	// that is the smallest. Stopper is the counter for the stopper.
+	do {
+		stopper = 0;
+		for (i = 0; i < vectorSize; i++) {
+			// reset the counter to null
+			k = -1;
+				// Loop to check the first number with all the other numbers
+				for (j = i+1; j < vectorSize; j++) {
+					if (originalVector[i] > originalVector[j]) {
+						k = j;
+					}
+				}
+				if (k != -1) {
+						swapNumbers(originalVector[i],originalVector[k]);
+				}
+				else {
+					//if there is no swap, increase stopper by 1
+					stopper++;
+				}
+			}
+		} while (stopper != vectorSize);
+	return originalVector;
+}
 //------------------------------------------------------------//
 //TODO: Add a function for binary sort - Steven
 //------------------------------------------------------------//
@@ -79,7 +107,7 @@ sort).\nPlease choose some numbers separated by commas! (ex. 1,2,3,4,5)\n";
 		return 0;
 	}
 	//create a bubblesort function
-	vector<double> sortedVector = bubbleSort(intNumberList);
+	vector<double> sortedVector = selectionSort(intNumberList);
 	cout << "Done! your sorted list of numbers is: ";
 	displayVector(sortedVector);
 	cout << endl;
