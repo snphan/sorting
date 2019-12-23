@@ -60,7 +60,7 @@ vector<double> bubbleSort(vector<double> originalVector) {
 //------------------------------------------------------------//
 //TODO: Add a function for selection sort
 //------------------------------------------------------------//
-//TODO: Add a function for binary sort
+//TODO: Add a function for binary sort - Steven
 //------------------------------------------------------------//
 
 int main() {
