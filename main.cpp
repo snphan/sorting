@@ -88,7 +88,10 @@ vector<double> selectionSort(vector<double> originalVector) {
 	return originalVector;
 }
 //------------------------------------------------------------//
-//TODO: Add a function for binary sort - Steven
+//TODO: Add a function for merge sort - Steven
+vector<double> mergeSort(vector<double> originalVector) {
+
+}
 //------------------------------------------------------------//
 
 int main() {
