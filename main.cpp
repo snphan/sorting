@@ -110,6 +110,8 @@ vector<double> selectionSort(vector<double> originalVector) {
 //------------------------------------------------------------//
 //TODO: Add a function for merge sort - Steven
 vector<double> mergeSort(vector<double> originalVector) {
+	// How does merge sort work? Keep splitting the list in half until there is
+	// only one element left. Combine them in order. Divide and conquer algorithm.
 
 }
 //------------------------------------------------------------//
