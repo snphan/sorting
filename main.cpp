@@ -57,6 +57,12 @@ vector<double> bubbleSort(vector<double> originalVector) {
 	return originalVector;
 }
 
+//------------------------------------------------------------//
+//TODO: Add a function for selection sort
+//------------------------------------------------------------//
+//TODO: Add a function for binary sort
+//------------------------------------------------------------//
+
 int main() {
 	string numberList;
     vector<double> intNumberList;
