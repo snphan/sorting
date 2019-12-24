@@ -114,6 +114,42 @@ vector<double> mergeSort(vector<double> originalVector) {
 	// only one element left. Combine them in order. Divide and conquer algorithm.
 
 }
+
+bool ifOdd(int x) {
+	// checks if the inputted value is odd.
+	int y = x % 2;
+	if (y = 0) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+vector<double> splitArrayLeft(vector<double> array) {
+	// This function will split the array into its left half
+		int arraySize = array.size();
+		int middleIndex;
+		vector<double> leftArray;
+		if (ifOdd(arraySize)) {
+			middleIndex = arraySize/2; // If the amount of elements is odd, then the function should round down
+		}
+		else {
+			middleIndex = arraySize/2 - 1;
+		}
+		vector<double> leftArray(middleIndex + 1);
+		for (int i = 0; i < middleIndex; i++) {
+			leftArray[i] = array[i];
+		}
+		return leftArray;
+}
+
+vector<double> splitArrayRight(vector<double> array) {
+	// This function will split the array into its right half
+
+}
+// We require some helper functions: one for merge and one for splitting the
+// arrays up.
 //------------------------------------------------------------//
 
 int main() {
