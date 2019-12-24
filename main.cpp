@@ -147,7 +147,23 @@ vector<double> splitArrayLeft(vector<double> array) {
 
 vector<double> splitArrayRight(vector<double> array) {
 	// This function will split the array into its right half
-
+    int arraySize = array.size();
+    int middleIndex;
+    int rightArraySize;
+		int i,j = 0;
+		if (ifOdd(arraySize)) {
+    	middleIndex = arraySize/2 + 1;
+		}
+		else {
+			middleIndex = arraySize/2;
+		}
+    rightArraySize = arraySize - middleIndex;
+    vector<double> rightArray(rightArraySize);
+    for (i = middleIndex; i < arraySize; i++) {
+        rightArray[j] = array[i];
+				j++;
+    }
+    return rightArray;
 }
 // We require some helper functions: one for merge and one for splitting the
 // arrays up.
