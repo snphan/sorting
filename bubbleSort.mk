@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=poper
-Date                   :=22/12/2019
+Date                   :=23/12/2019
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/MinGW/bin/g++.exe
 SharedObjectLinkerName :=C:/MinGW/bin/g++.exe -shared -fPIC
@@ -52,7 +52,7 @@ LibPath                := $(LibraryPathSwitch).
 AR       := C:/MinGW/bin/ar.exe rcu
 CXX      := C:/MinGW/bin/g++.exe
 CC       := C:/MinGW/bin/gcc.exe
-CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
+CXXFLAGS := -std=c++17 -std=c++14 -std=c++11 -g -O0 -Wall $(Preprocessors)
 CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
 ASFLAGS  := 
 AS       := C:/MinGW/bin/as.exe
