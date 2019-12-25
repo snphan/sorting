@@ -115,9 +115,7 @@ vector<double> sortArrays(vector<double> originalVector, int leftIndex, int midd
     // Make a dummy array with the left and right left index parameter
     int dummyArraySize = rightIndex - leftIndex + 1;
     vector<double> dummyArray = originalVector;
-    int leftArraySize = middleIndex - leftIndex + 1;
-    int rightArraySize = rightIndex - middleIndex;
-    int i = leftIndex,j = middleIndex + 1,k = 0; //let i,j,k be the index for the left right and new array respectivly
+    int i = leftIndex,j = middleIndex + 1,k = leftIndex; //let i,j,k be the index for the left right and new array respectivly
     while (i <= middleIndex && j <= rightIndex) {
         // While both of the sorted left and right arrays have not reached the last index, compare them.
         if (originalVector[i] <= originalVector[j]) {
@@ -133,19 +131,21 @@ vector<double> sortArrays(vector<double> originalVector, int leftIndex, int midd
     }
     if (i == middleIndex + 1) {
         // Means that the the rest of the right matrix is greater than the greatest number in the leftMatrix
-        while (k < dummyArraySize) {
+        while (k <= rightIndex) {
             dummyArray[k] = originalVector[j];
             j++;
             k++;
         }
     }
     if (j == rightIndex + 1) { // Means that the the rest of the left matrix is greater than the greatest number in the rightMatrix
-        while (k < dummyArraySize) {
+        while (k <= rightIndex) {
             dummyArray[k] = originalVector[i];
             i++;
             k++;
         }
     }
+    //displayVector(dummyArray);
+    //cout << endl;
     return dummyArray;
 }
 
@@ -153,7 +153,7 @@ void mergeSort(vector<double> &originalVector, int leftIndex, int rightIndex) {
     // How does merge sort work? Keep splitting the list in half until there is
     // only one element left. Combine them in order. Divide and conquer algorithm.
     if (leftIndex < rightIndex) {
-        int middleIndex = leftIndex + rightIndex/2;
+        int middleIndex = leftIndex + (rightIndex-leftIndex)/2;
         mergeSort(originalVector, leftIndex, middleIndex);
         mergeSort(originalVector, middleIndex+1, rightIndex);
         originalVector = sortArrays(originalVector, leftIndex, middleIndex, rightIndex);
@@ -180,8 +180,10 @@ int main() {
     }
     //create a bubblesort function
     //vector<double> sortedVector = selectionSort(intNumberList);
+    auto startTime = timerStart();
     mergeSort(intNumberList, 0, intNumberList.size() - 1);
     vector<double> sortedVector = intNumberList;
+    timerFinish(startTime);
     cout << "Done! your sorted list of numbers is: ";
     displayVector(sortedVector);
     cout << endl;
