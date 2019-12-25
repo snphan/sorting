@@ -57,24 +57,6 @@ void displayVector(vector<double> numberVector) {
 }
 
 vector<double> bubbleSort(vector<double> originalVector) {
-<<<<<<< HEAD
-	// use bubble sort to sort from least to greatest.
-	int vectorSize = originalVector.size();
-	int i,j;
-	do {
-		j = 1;
-		for (i = 0; i < vectorSize - 1; i++) {
-				if (originalVector[i] > originalVector[i+1]) {
-					swapNumbers(originalVector[i], originalVector[i+1]);
-          //displayVector(originalVector);
-          //cout << endl;
-				}
-				else {
-					j++;
-				}
-		}
-	}
-=======
     // use bubble sort to sort from least to greatest.
     int vectorSize = originalVector.size();
     int i,j;
@@ -91,7 +73,6 @@ vector<double> bubbleSort(vector<double> originalVector) {
             }
         }
     }
->>>>>>> debug mergesort function
     while (j != vectorSize);
     return originalVector;
 }
@@ -190,22 +171,6 @@ int main() {
     cin >> numberList;
     if (numberList != "\0") {
         intNumberList = convertStrToVector(numberList);
-<<<<<<< HEAD
-		cout << "Awesome, your list of numbers is: ";
-		displayVector(intNumberList);
-		cout << endl;
-	} else {
-		cout << "Hmm, it doesn't seem like you entered anything\n";
-		return 0;
-	}
-	auto startTime = timerStart();
-	vector<double> sortedVector = bubbleSort(intNumberList);
-  timerFinish(startTime);
-	cout << "Done! your sorted list of numbers is: ";
-	displayVector(sortedVector);
-	cout << endl;
-  return 0;
-=======
         cout << "Awesome, your list of numbers is: ";
         displayVector(intNumberList);
         cout << endl;
@@ -221,5 +186,4 @@ int main() {
     displayVector(sortedVector);
     cout << endl;
     return 0;
->>>>>>> debug mergesort function
 }
