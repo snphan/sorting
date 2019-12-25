@@ -112,10 +112,10 @@ vector<double> selectionSort(vector<double> originalVector) {
 vector<double> mergeSort(vector<double> originalVector) {
 	// How does merge sort work? Keep splitting the list in half until there is
 	// only one element left. Combine them in order. Divide and conquer algorithm.
-
+	
 }
 
-bool ifOdd(int x) {
+bool isOdd(int x) {
 	// checks if the inputted value is odd.
 	int y = x % 2;
 	if (y == 0) {
@@ -131,7 +131,7 @@ vector<double> splitArrayLeft(vector<double> array) {
     int arraySize = array.size();
     int middleIndex;
     int leftArraySize;
-    if (ifOdd(arraySize)) {
+    if (isOdd(arraySize)) {
         middleIndex = arraySize/2; // If the amount of elements is odd, then the function should round down
     }
     else {
@@ -151,7 +151,7 @@ vector<double> splitArrayRight(vector<double> array) {
     int middleIndex;
     int rightArraySize;
 		int i,j = 0;
-		if (ifOdd(arraySize)) {
+		if (isOdd(arraySize)) {
     	middleIndex = arraySize/2 + 1;
 		}
 		else {
@@ -164,6 +164,37 @@ vector<double> splitArrayRight(vector<double> array) {
 				j++;
     }
     return rightArray;
+}
+
+vector<double> sortArrays(vector<double> leftArray, vector<double> rightArray) {
+	int leftArraySize = leftArray.size();
+	int rightArraySize = rightArray.size();
+	int newArraySize = leftArraySize + rightArraySize;
+	vector<double> newArray(newArraySize);
+	int i = 0,j = 0,k = 0; //let i,j,k be the index for the left right and new array respectivly
+	while (i < leftArraySize && j < rightArraySize) {
+		// While both of the sorted left and right arrays have not reached the last index, compare them.
+		if (leftArray[i] < rightArray[j]) {
+			newArray[k] = leftArray[i];
+			i++;
+		}
+		else {
+			newArray[k] = rightArray[j];
+			j++;
+		}
+		// one of the conditions has to run so the index for the new index increases.
+		k++;
+	}
+	if (i == leftArraySize) { // Means that the the rest of the right matrix is greater than the greatest number in the leftMatrix
+			for (k < newArraySize && j < rightArraySize; k++, j++) {
+				newArray[k] = rightArray[j]
+			}
+	}
+	if (j == rightArraySize) { // Means that the the rest of the left matrix is greater than the greatest number in the rightMatrix
+			for (k < newArraySize && j < leftArraySize; k++, i++) {
+				newArray[k] = leftArray[i]
+			}
+	}
 }
 // We require some helper functions: one for merge and one for splitting the
 // arrays up.
