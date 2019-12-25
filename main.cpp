@@ -63,7 +63,7 @@ vector<double> bubbleSort(vector<double> originalVector) {
     do {
         j = 1;
         for (i = 0; i < vectorSize - 1; i++) {
-            if (originalVector[i] > originalVector[i+1]) {
+            if (originalVector[i] >= originalVector[i+1]) {
                 swapNumbers(originalVector[i], originalVector[i+1]);
                 displayVector(originalVector);
                 cout << endl;
@@ -92,7 +92,7 @@ vector<double> selectionSort(vector<double> originalVector) {
             k = -1;
             // Loop to check the first number with all the other numbers
             for (j = i+1; j < vectorSize; j++) {
-                if (originalVector[i] > originalVector[j]) {
+                if (originalVector[i] >= originalVector[j]) {
                     k = j;
                 }
             }
@@ -167,7 +167,7 @@ int main() {
     string numberList;
     vector<double> intNumberList;
     cout << "Hello, this program will sort your list of numbers using the bubble \
-    sort).\nPlease choose some numbers separated by commas! (ex. 1,2,3,4,5)\n";
+sort).\nPlease choose some numbers separated by commas! (ex. 1,2,3,4,5)\n";
     cin >> numberList;
     if (numberList != "\0") {
         intNumberList = convertStrToVector(numberList);
